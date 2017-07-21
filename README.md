@@ -4,17 +4,23 @@ Sphinx Documentation autoconfig with Apache SUBVERSION, Apapche HTTPD, LatexPDF.
 # Manual install
 
 git clone https://github.com/rlagutinhub/sphinxdocs.git
+
 cd sphinxdocs
 
 Docker Image:
+
 docker build -t rlagutinhub/sphinxdocs:1 .
 
 Docker network:
+
 docker network create -d bridge sphinxdocs_net-prod
 
 Docker volume:
+
 docker volume create sphinxdocs_data-etc
+
 docker volume create sphinxdocs_data-log
+
 docker volume create sphinxdocs_data-www
 
 Docker container:
