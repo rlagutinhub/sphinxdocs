@@ -40,7 +40,7 @@ docker run -dit \
 	-e "DATA_DIR=/var/www/html" \
 	-e "SVN_NAME=docs.svn" \
 	-e "SPHINX_NAME=docs.example" \
-	-e "SPHINX_AUTHOR=author@example.com \
+	-e "SPHINX_AUTHOR=author@example.com" \
 	-e "SPHINX_PDF_SCHED_M=0" \
 	-e "SPHINX_PDF_SCHED_H=0" \
 	-e "SVN_VHOST=svn.docs.example.com" \
