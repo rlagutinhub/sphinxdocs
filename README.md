@@ -1,4 +1,4 @@
-# sphinxdocs
+# Docker sphinxdocs (base image fedora:26)
 
 Sphinx Documentation autoconfig with Apache SUBVERSION, Apapche HTTPD, LatexPDF. Use html_theme Read the Docs.
 
