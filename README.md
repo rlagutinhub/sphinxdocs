@@ -2,33 +2,36 @@
 
 Sphinx Documentation autoconfig with Apache SUBVERSION, Apapche HTTPD, LatexPDF. Use theme Read the Docs.
 
-# Manual install
+Manual install
 
+```console
 git clone https://github.com/rlagutinhub/sphinxdocs.git
-
 cd sphinxdocs
+```
 
 Docker Image:
 
+```console
 docker build -t rlagutinhub/sphinxdocs:1 .
-
+```
 
 Docker network:
 
+```console
 docker network create -d bridge sphinxdocs_net-prod
-
+```
 
 Docker volume:
 
+```console
 docker volume create sphinxdocs_data-etc
-
 docker volume create sphinxdocs_data-log
-
 docker volume create sphinxdocs_data-www
-
+```
 
 Docker container:
 
+```console
 docker run -dit \
 	-e "DATA_DIR=/var/www/html" \
 	-e "SVN_NAME=docs.svn" \
@@ -51,52 +54,41 @@ docker run -dit \
 	-v sphinxdocs_data-etc:/etc/httpd -v sphinxdocs_data-log:/var/log/httpd -v sphinxdocs_data-www:/var/www/html \
 	--name sphinxdocs \
 	rlagutinhub/sphinxdocs:1
-
+```
 
 Other:
 
+```console
 docker ps -a
-
 docker container ls -a
-
 docker image ls -a
-
 docker exec -it sphinx01 bash (After complete work input: exit)
-
 docker logs sphinx01
-
 docker container stop sphinx01
-
 docker container rm sphinx01
-
 docker network rm sphinxdocs_net-prod
-
 docker volume rm sphinxdocs_data-etc
-
 docker volume rm sphinxdocs_data-log
-
 docker volume rm sphinxdocs_data-www
-
 docker image rm rlagutinhub/sphinxdocs:1
+```
 
+Auto install (docker-compose)
 
-# Auto install (docker-compose)
-
-
+```console
 pip install -U docker-compose
-
 git clone https://github.com/rlagutinhub/sphinxdocs.git
-
 cd sphinxdocs
+```
 
-
+```console
 ./start.sh
-
 ./stop.sh
-
 ./check-conf-yml.sh
-
+```
 
 Connect to container:
 
+```console
 ./connect.sh
+```
