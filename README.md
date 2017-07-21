@@ -1,8 +1,8 @@
 # sphinxdocs
 
-Sphinx Documentation autoconfig with Apache SUBVERSION, Apapche HTTPD, LatexPDF. Use theme Read the Docs.
+### Sphinx Documentation autoconfig with Apache SUBVERSION, Apapche HTTPD, LatexPDF. Use theme Read the Docs.
 
-Manual install
+#### Manual install
 
 ```console
 git clone https://github.com/rlagutinhub/sphinxdocs.git
@@ -73,7 +73,7 @@ docker volume rm sphinxdocs_data-www
 docker image rm rlagutinhub/sphinxdocs:1
 ```
 
-Auto install (docker-compose)
+#### Auto install (docker-compose)
 
 ```console
 pip install -U docker-compose
