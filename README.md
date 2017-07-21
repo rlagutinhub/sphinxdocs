@@ -49,7 +49,7 @@ docker run -dit \
 	-e "AUTHZ_USERS_DEVELOPER_PASS=1qaz@WSX" \
 	-e "AUTHZ_USERS_READER=reader" \
 	-e "AUTHZ_USERS_READER_PASS=1qaz@WSX" \
-	#--memory="2048m" --cpus=1 \
+	--memory="2048m" --cpus=1 \
 	--network=bridge -p 8080:80 \
 	-v sphinxdocs_data-etc:/etc/httpd -v sphinxdocs_data-log:/var/log/httpd -v sphinxdocs_data-www:/var/www/html \
 	--name sphinxdocs \
