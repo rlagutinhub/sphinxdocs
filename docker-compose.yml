@@ -1,0 +1,52 @@
+# pip install docker-compose
+version: '3'
+services:
+  sphinxdocs:
+    # Default values defined in .env file
+    env_file: .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: rlagutinhub/sphinxdocs:1
+    container_name: sphinxdocs
+    environment:
+      - DATA_DIR=${DATA_DIR}
+      - SVN_NAME=${SVN_NAME}
+      - SPHINX_NAME=${SPHINX_NAME}
+      - SPHINX_AUTHOR=${SPHINX_AUTHOR}
+      - SPHINX_PDF_SCHED_M=${SPHINX_PDF_SCHED_M}
+      - SPHINX_PDF_SCHED_H=${SPHINX_PDF_SCHED_H}
+      - SVN_VHOST=${SVN_VHOST}
+      - SPHINX_VHOST=${SPHINX_VHOST}
+      - AUTHZ_USERS=${AUTHZ_USERS}
+      - AUTHZ_SVN=${AUTHZ_SVN}
+      - AUTHZ_USERS_ADMIN=${AUTHZ_USERS_ADMIN}
+      - AUTHZ_USERS_ADMIN_PASS=${AUTHZ_USERS_ADMIN_PASS}
+      - AUTHZ_USERS_DEVELOPER=${AUTHZ_USERS_DEVELOPER}
+      - AUTHZ_USERS_DEVELOPER_PASS=${AUTHZ_USERS_DEVELOPER_PASS}
+      - AUTHZ_USERS_READER=${AUTHZ_USERS_READER}
+      - AUTHZ_USERS_READER_PASS=${AUTHZ_USERS_READER_PASS}
+    volumes:
+      - data-etc:/etc/httpd
+      - data-log:/var/log/httpd
+      - data-www:/var/www/html
+    networks:
+      - net-prod
+    ports:
+      - 8080:80/tcp
+    # deploy:
+      # resources:
+        # limits:
+          # cpus: '0.5'
+          # memory: 2048M
+        # reservations:
+          # cpus: '0.5'
+          # memory: 1024M
+volumes:
+  data-etc: {}
+  data-log: {}
+  data-www: {}
+networks:
+  net-prod:
+    driver: bridge
+
